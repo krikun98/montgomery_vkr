@@ -21,7 +21,6 @@
     publisher={Springer Berlin Heidelberg},
     address={Berlin, Heidelberg},
     pages={240--254},
-    abstract={This paper discusses representations for computation on non-supersingular elliptic curves over binary fields, where computations are performed on the x-coordinates only. We discuss existing methods and present a new one, giving rise to a faster addition routine than previous Montgomery-representations. As a result a double exponentiation routine is described that requires 8.5 field multiplications per exponent bit, but that does not allow easy y-coordinate recovery. For comparison, we also give a briefu pdate oft he survey by Hankerson et al. and conclude that, for non-constrained devices, using a Montgomeryrepresentation is slower for both single and double exponentiation than projective methods with y-coordinate.},
     isbn={978-3-540-36288-3},
     langid={english}
 }
@@ -84,7 +83,6 @@
 }
 
 @article{dif77,
-  abstract = {Two kinds of contemporary developments in cryptography are examined. Widening applications of teleprocessing have given rise to a need for new types of cryptographic systems, which minimize the need for secure key distribution channels and supply the equivalent of a written signature. This paper suggests ways to solve these currently open problems. It also discusses how the theories of communication and computation are beginning to provide the tools to solve cryptographic problems of long standing.},
   added-at = {2009-01-14T00:43:43.000+0100},
   author = {Diffie, Whitfield and Hellman, Martin E.},
   journal = {IEEE Transactions on Information Theory},
@@ -739,7 +737,7 @@ $|(\mathbb{Z}/N\mathbb{Z})^*| = \varphi (N)$.
 Уравнение для целых чисел по модулю $N$:
 \[a*x = b \pmod{N}\]
 Для конечных полей $GF(2^k)$ переопределяется как:
-\[a(x)*\alpha = b(x) \pmod{f(x)}]\]
+\[a(x) \cdot \alpha = b(x) \pmod{f(x)}]\]
 Как и в случае для целых чисел, ответ зависит от НОД$(a(x), f(x))$.
 Многочлен называется неприводимым, если у него нет делителей, отличных от него самого и единичного элемента.
 Таким образом, неприводимые многочлены являются аналогами простых чисел в конечных полях.
@@ -772,14 +770,69 @@ $g$ и $n$ -- переопределяются соответственно ка
 
 \section{Некоторые операции в конечных полях}\label{sec:oper}
 
-Тут вкратце будет рассказано об алгоритмах умножения в конечных полях.
-Также будет объяснён крестьянский алгоритм, который используется для умножения в моей имплементации.
-Источниками будут~\cite{knu97, men01, koc98}.
+% Эта глава и все последующие будут раскрыты подробнее после предзащиты
+В конечных полях $GF(2^k)$ операции сложения и вычитания переопределены как сложение по модулю $2$.
+Эта операция похожа на сложение в двоичной системе, но переполнения модуля отбрасываются, то есть нет переносов.
+То есть в конечном поле $GF(2^k)$ $1+1 = 1-1 = 0$.
+На ЭВМ эта операция реализуется через побитовое исключающее ИЛИ и выполняется эффективно - специальной инструкцией процессора.
 
-\section{Алгоритмы возведения в степень по модулю}\label{sec:exp}
+Умножение производится относительно неприводимого многочлена $n(x)$:
+\[c(x) = a(x) \cdot b(x)\pmod{n(x)}\]
+и все переносы также отбрасываются.
+Умножение и деление на два  на ЭВМ производятся через побитовые сдвиги:
+\[a(x) \cdot x = \sum_{i=0}^{k-1}a_i x^i = a_{k-2}x^{k} + a_{k-2}x^{k-1} + \dots + a_1 x^2 + a_0 x\]
+После умножения на 2 для взятия модуля может быть вычтен неприводимый многочлен.
 
-Здесь будут представоены алгоритмы left-to-right и описание различных имплементаций и проблем.
-Источниками будут~\cite{knu97, men01, koc97}.
+В реализации для данной работы для умножения использовался модифицированный метод "древнеегипетского" или "крестьянского"
+умножения.
+Для данных $a(x)$ и $b(x)$ алгоритм получает $c(x) = a(x) \cdot b(x) \pmod{n(x)}$:
+\begin{enumerate}[label=\arabic*:]
+    \item $c(x)=0$
+    \item for i=0 to k-1
+    \item \hspace*{10mm} $c(x) = c(x) + b_0 a(x)$
+    \item \hspace*{10mm} $b(x) = b(x)/x$
+    \item \hspace*{10mm} $car = a_{k-1}$
+    \item \hspace*{10mm} $a(x) = a(x) \cdot x$
+    \item \hspace*{10mm} if $car == 1$: $a(x) = a(x) - n(x)$
+\end{enumerate}
+Если на каком-то шаге значение $a(x)$ становится больше неприводимого многочлена (что выявляется на шаге 5), на шаге 7
+от него берётся остаток по модулю.
+Отметим, что это происходит через эффективную операцию побитового исключающего или.
+Сумма двух элементов $GF(2^k)$ никогда не будет больше неприводимого многочлена, так как переносы при сумме отбрасываются.
+Следовательно, на четвёртом шаге алгоритма операция взятия остатка по модулю не нужна.
+
+Для вычисления НОД и мультипликативно обратного использовалась вариация расширенного алгоритма Евклида
+- алгоритм Бланкиншипа.
+Вычисляется $a(x) \cdot u + n(x) \cdot v =$ НОД$(a(x), n(x)) = 1$.
+$u$ будет мультипликативно обратным к $a(x)$.
+В алгоритме Бланкиншипа определяется матрица:
+\begin{equation*}
+M =
+\begin{pmatrix}
+a(x) & 1 & 0 \\
+b(x) & 0 & 1\\
+\end{pmatrix}
+\end{equation*}
+Затем к первому столбцу применяется расширенный алгоритм Евклида, распространяя операции на остальные.
+Алгоритм заканчивается, когда в первом столбце появляется НОД$(a(x), b(x))$.
+Во второй строке остаются $1, u, v$.
+
+Для возведения в степень в конечных полях используются различные алгоритмы бинарного возведения в степень.
+В данной работе используется самый распространённый алгоритм возведения в степень слева направо\\
+(left-to-right binary exponentiation)~\cite{koc97}.
+Для данных $m(x)$ и $e$ алгоритм позволяет вычислить $c(x) = m(x)^e \pmod{n(x)}$ в разы быстрее метода последовательных умножений:
+\begin{enumerate}[label=\arabic*:]
+    \item $c(x) = 1$
+    \item for i=k-1 downto 0
+    \item \hspace*{10mm} $c(x) = c(x)\cdot c(x)$
+    \item \hspace*{10mm} if $e_i$ == 1: $c(x) = m(x) \cdot c(x)$
+\end{enumerate}
+Умножения в алгоритме выполняются по вышеуказанному модифицированному крестьянскому алгоритму и учитывают остатки от деления.
+
+Имплементация данных операций позволила получить эффективную реализацию алгебры в конечных полях $GF(2^k)$.
+Эта реализация аналогична существующим аналогам, которые лежат в основе многих стандартных криптографических библиотек.
+Она служила опорной точкой для сравнения с оптимизированными вариантами, которые описаны далее.
+
 
 \section{Алгоритм Монтгомери}\label{sec:mont}
 
