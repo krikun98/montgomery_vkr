@@ -711,7 +711,7 @@ $\varphi(N)$ можно найти с помощью разложения $N$ н
 \[\varphi(p*q) = (p-1)*(q-1)\]
 Для взаимно простых $a$ и $N$ существует единственное $c$, удовлетворяющее следующему равенству:
 \[a*c \equiv c*a \equiv 1 \rmod{N}\]
-Это $c$ называется мультипликативным обратным к $a$ и обозначается как $a^{-1} \pmod{N}$.
+Такое $c$ называется мультипликативным обратным к $a$ и обозначается как $a^{-1} \pmod{N}$.
 При простом модуле $N=p$ для любого ненулевого элемента $N$ существует единственно мультипликативно обратное.
 \[ \forall a \in (\mathbb{Z}/p\mathbb{Z}) \backslash \{0\} ~ \exists! a^{-1}: a*a^{-1} = 1 \pmod{p}\]
 
@@ -729,8 +729,8 @@ $\varphi(N)$ можно найти с помощью разложения $N$ н
 Количество элементов этого множества будет равно значению функции Эйлера:
 $|(\mathbb{Z}/N\mathbb{Z})^*| = \varphi (N)$.
 
-При простом $N=p$ каждый элемент кольца $\mathbb{Z}/p\mathbb{Z}$ взаимно прост с $p$ и поэтому обратим.
-Из этого следует два свойства:
+При простом $N=p$ каждый элемент кольца $\mathbb{Z}/p\mathbb{Z}$ взаимно прост с $p$ и поэтому обратим,
+из чего следуют два свойства:
 \begin{gather*}
     (\mathbb{Z}/p\mathbb{Z})^* = \{1, \dots, p-1\}\\
     F \backslash \{0\} = F^*\\
@@ -795,15 +795,17 @@ $g$ и $n$ -- переопределяются соответственно ка
 В реализации для данной работы для умножения использовался модифицированный метод "древнеегипетского" или "крестьянского"
 умножения.
 Для данных $a(x)$ и $b(x)$ алгоритм получает $c(x) = a(x) \cdot b(x) \pmod{n(x)}$:
-\begin{enumerate}[label=\arabic*:]
-    \item $c(x)=0$
-    \item for i=0 to k-1
-    \item \hspace*{10mm} $c(x) = c(x) + b_0 a(x)$
-    \item \hspace*{10mm} $b(x) = b(x)/x$
-    \item \hspace*{10mm} $car = a_{k-1}$
-    \item \hspace*{10mm} $a(x) = a(x) \cdot x$
-    \item \hspace*{10mm} if $car == 1$: $a(x) = a(x) - n(x)$
-\end{enumerate}
+\begin{lstlisting}[mathescape=true]
+    $\textit{Вход}: ~a(x), ~b(x), ~n(x)$
+    $\textit{Выход}:~c(x) = a(x) \cdot b(x)\pmod{n(x)}$
+    1: $c(x)=0$
+    2: for i=0 to k-1
+    3:      $c(x) = c(x) + b_0 a(x)$
+    4:      $b(x) = b(x)/x$
+    5:      $car = a_{k-1}$
+    6:      $a(x) = a(x) \cdot x$
+    7:      if $car == 1$: $a(x) = a(x) - n(x)$
+\end{lstlisting}
 Если на каком-то шаге значение $a(x)$ становится больше неприводимого многочлена (что выявляется на шаге 5), на шаге 7
 от него берётся остаток по модулю.
 Отметим, что это происходит через эффективную операцию побитового исключающего или.
@@ -830,12 +832,14 @@ b(x) & 0 & 1\\
 В данной работе используется самый распространённый алгоритм возведения в степень слева направо\\
 (left-to-right binary exponentiation)~\cite{koc97}.
 Для данных $m(x)$ и $e$ алгоритм позволяет вычислить $c(x) = m(x)^e \pmod{n(x)}$ в разы быстрее метода последовательных умножений:
-\begin{enumerate}[label=\arabic*:]
-    \item $c(x) = 1$
-    \item for i=k-1 downto 0
-    \item \hspace*{10mm} $c(x) = c(x)\cdot c(x)$
-    \item \hspace*{10mm} if $e_i$ == 1: $c(x) = m(x) \cdot c(x)$
-\end{enumerate}
+\begin{lstlisting}[mathescape=true]
+    $\textit{Вход}: ~m(x), ~e, ~n(x)$
+    $\textit{Выход}:~c(x) = m(x)^e \pmod{n(x)}$
+    1: $c(x) = 1$
+    2: for i=k-1 downto 0
+    3:      $c(x) = c(x)\cdot c(x)$
+    4:      if $e_i$ == 1: $c(x) = m(x) \cdot c(x)$
+\end{lstlisting}
 Умножения в алгоритме выполняются по вышеуказанному модифицированному крестьянскому алгоритму и учитывают остатки от деления.
 
 Имплементация данных операций позволила получить эффективную реализацию алгебры в конечных полях $GF(2^k)$.
@@ -873,7 +877,7 @@ $r > n, \text{НОД}(n,r) = 1$ и $0 \leq a < nR$.
 \[\overline{c} \equiv \overline{a} \cdot \overline{b} \cdot r^{-1} \pmod{n(x)}
 \equiv a \cdot r \cdot b \cdot r \cdot r^{-1} \pmod{n(x)}
 \equiv c \cdot r \pmod{n(x)}\]
-Как видно из выражения, для перевода в форму Монтгомери можно использовать умножение Монтгомери на $r(x)^2$,
+Из этой эквивалентности следует, что для перевода в форму Монтгомери можно использовать умножение Монтгомери на $r(x)^2$,
 а для перевода обратно - на единицу.
 
 Перевод в форму Монтгомери и обратно даёт некоторые дополнительные затраты времени, за счёт которых
@@ -901,16 +905,56 @@ $r > n, \text{НОД}(n,r) = 1$ и $0 \leq a < nR$.
 
 \section{Клеточные автоматы}\label{sec:cells}
 
-В этой главе будет рассказано о клеточных автоматах, их истории и структуре.
-Также будет рассказано об их применениях в криптографии.
-Как источники будут использоваться~\cite{zhu17, zhu17_2}.
+Клеточные автоматы были созданы в 1940-е годы Джоном фон Нейманом\cite{zhu17, zhu17_2}.
+Классический клеточный автомат - это упорядоченный набор ячеек памяти, образующий n-мерную решётку.
+Наибольшее распространение получили одно- и двухмерные автоматы.
+Каждая ячейка может хранить одно значение из конечного набора, часто - один бит.
+Время для клеточных автоматов измеряется дискретными значениями - тактами.
+Смена значений происходит одновременно и независимо во всех ячейках со сменой такта в соответствие с правилом перехода.
+Новое значение каждой ячейки вычисляется как функция от значений соседних ячеек.
+Структура решётки зависит от формы ячеек, но в данной работе рассматриваются одномерные автоматы,
+и решётка предствавляет из себя замкнутое кольцо.
+В данной работе рассматриваются одномерные клеточные автоматы Вольфрама.
+Вычисления с помощью клеточных автоматов могут выполняться параллельно.
+
+Некоторые клеточные автоматы являются Тьюринг-полными и могут выполнять произвольные вычисления.
+С помощью клеточных автоматов можно создавать как программные, так и физические реализации различных алгоритмов.
+Например, к клеточному автомату можно свести алгоритм Монтгомери~\cite{jeo07}, упомянутый в предыдущей главе.
+Такие реализации высокоэффективны и относительно времени, и относительно сложности физических схем.
 
 \section{Параллелизация алгоритма Монтгомери}\label{sec:paramont}
 
-Здесь будет пересказ статьи~\cite{ku04} с подробным описанием алгоритма.
-Также будет объяснение перевода алгоритма на клеточные автоматы.
-Клеточные автоматы в рамках данной работы - это абстракция, позволяющия объяснить алгоритм.
-Но эта абстракция ценна тем, что с её использованием можно создать реализацию "в железе" с логическими элементами.
+В алгоритме возведения в степень Монтгомери есть шаг 4, на котором в вычислении двух значений
+$m(x)$ и $c(x)$ может быть общий шаг~\cite{ku04}:
+\begin{gather*}
+  \text{MMM}(\overline{m}(x), \overline{c}(x)) = \overline{m}(x)\overline{c}(x)r^{-1} \pmod{n(x)}\\
+  \text{MMM}(\overline{m}(x), \overline{m}(x)) = \overline{m}(x)\overline{m}(x)r^{-1} \pmod{n(x)}\\
+\end{gather*}
+Вычисление $\overline{m}(x)r^{-1}$ можно производить единожды для ускорения алгоритма:
+\begin{lstlisting}[breaklines=true, mathescape=true]
+    $\textit{Вход}: ~\overline{m}(x), ~\overline{c}(x), ~n(x)$
+    $\textit{Выход}: ~M(x) = \text{MMM}(\overline{m}(x), \overline{c}(x)),
+    ~S(x) = \text{MMM}( \overline{m}(x), \overline{m}(x))$
+    1: $t(x)= \overline{m}(x)$
+    2: $M(x)=0,S(x)=0$
+    3: for i = k-1 to 0
+    4:   $t(x) = (t(x) + t_0 n(x))/x$
+    5:   $M(x)= M(x)+t(x)\overline{c}_i,$ $S(x) = S(x)+ t(x)\overline{m}_i$
+\end{lstlisting}
+
+Что позволяет создать оптимизированную с помощью параллельных вычислений версию алгоритма Монтгомери:
+\begin{lstlisting}[breaklines=true, mathescape=true]
+    $\textit{Вход}: ~m(x), ~e, ~n(x), ~r^2 = r(x) \cdot r(x) \pmod{n(x)}$
+    $\textit{Выход}:~c(x) = m(x)^e \pmod{n(x)}$
+    1: $\overline{m}(x) = \text{MMM}(m(x), r^2)$
+    2: $\overline{c}(x) = \text{MMM}(1, r^2)$
+    3: for i = 0 to k-1
+    4:   if $e_i$ == 1: $(\overline{c}(x),\overline{m}(x))  = \text{MMMS}( \overline{m}(x), \overline{c}(x))$
+    5:   else: $\overline{m}(x) = \text{MMM}( \overline{m}(x), \overline{m}(x))$
+    6: $c(x) = \text{MMM}( \overline{c}(x), 1)$
+\end{lstlisting}
+Эта версия ещё более эффективна, чем предыдущие реализации, и также может быть имплементирована с
+помощью клеточных автоматов.
 
 \finishrelatedwork
 \chapterconclusion
@@ -923,26 +967,26 @@ $r > n, \text{НОД}(n,r) = 1$ и $0 \leq a < nR$.
 
 \section{Выбор языка программирования}\label{sec:prog}
 
-Будет рассказано про особенности языка Python, за которые он был выбран для данного проекта.
+В данной главе будет рассказано про особенности языка Python, за которые он был выбран для данного проекта.
 В частности, про то, что в Python переменные и числа не имеют ограничения по длинне, что делает
 возможным тестирование на очень длинных ключах.
 Также будут описаны альтернативы (performance-focused implementations из статьи) и их недостатки.
 
 \section{Описание имплементации}\label{sec:impl}
 
-Здесь будет не очень много, в основном структура и ссылки на алгоритмы из первой главы.
+Здесь в основном структура и ссылки на алгоритмы из первой главы.
 В приложении будет код - не весь, но некоторых функций.
 Возможно, будут ссылки на упомянутые ранее альтернативы:~\cite{pri16, mau15}
 
 \section{Методология тестирования производительности}\label{sec:meth}
 
 Ссылки на наборы многочленов~\cite{rfc7296, rfc3526, par17} и повторный рассказ о методиках их выбора~\cite{rfc2412}.
-Также упор на многократное тестирование на случайных числах.
-Тут в основном, опять же, из статьи.
+Также объяснение методики и некоторые цифры по количеству тестов и усреднению результатов.
 
 \section{Результаты тестирования производительности}\label{sec:results}
 
 Графики из статьи на русском и их описание.
+
 
 \chapterconclusion
 
@@ -950,7 +994,7 @@ $r > n, \text{НОД}(n,r) = 1$ и $0 \leq a < nR$.
 
 \startconclusionpage
 
-Краткое описание достигнутых результатов, акцент на возможности реализации "в железе"
+Краткое описание достигнутых результатов, акцент на возможности физической реализации
 и минимальности изменений для программной.
 Также акцент на том, что прирост в производительности универсален и может быть применён не только для Диффи-Хеллмана
 и в теории для эллиптических кривых~\cite{sta03} как further research.
@@ -962,6 +1006,159 @@ $r > n, \text{НОД}(n,r) = 1$ и $0 \leq a < nR$.
 
 \chapter{Секции исходного кода имплементации}\label{sec:app:1}
 
-    Некоторые критические функции и ссылка на репозиторий.
+\lstset{language=python}
+\begin{lstlisting}[caption={Реализованная библиотека для вычислений в конечных полях $GF(2^k)$},label={lstX}]
+class Galois:
+    def __init__(self, irp=int("100011011", 2)):
+        self.irp = irp
+        self.k = self.irp.bit_length() - 1
+
+    def __mon_init__(self):
+        self.r = 1 << self.k
+        rt = self.r ^ self.irp
+        self.r_sq = self.mult(rt, rt)
+
+    def __gf2divmod(self, avec, bvec):
+        na = avec[0].bit_length() or 1
+        nd = bvec[0].bit_length()
+        i = na - nd
+        q = 0
+        test = 1 << (na - 1)
+        while i >= 0:
+            if (avec[0] & test) != 0:
+                avec = [a ^ (d << i) for (a, d) in zip(avec, bvec)]
+                q |= (1 << i)
+            i -= 1
+            test >>= 1
+        r = avec
+        return q, r
+
+    def __blankinship(self, a, b):
+        arow = [a, 1, 0]
+        brow = [b, 0, 1]
+        while True:
+            (_, rrow) = self.__gf2divmod(arow, brow)
+            if rrow[0] == 0:
+                break
+            arow = brow
+            brow = rrow
+        return tuple(brow)
+
+    def mult(self, a, b):
+        p = 0
+        while a > 0 and b > 0:
+            c = 0
+            if b & 1:
+                p ^= a
+            b >>= 1
+            a <<= 1
+            if a & 1 << self.k:
+                c = 1
+            if c & 1:
+                a ^= self.irp
+        return p
+
+    def add(self, a, b):
+        return a ^ b
+
+    def dumb_exp(self, a, e):
+        c = 1
+        for i in range(e):
+            c = self.mult(c, a)
+        return c
+
+    def exp(self, a, e):
+        c = 1
+        r = a
+        while e > 0:
+            if e & 1:
+                c = self.mult(c, r)
+            e >>= 1
+            if e > 0:
+                r = self.mult(r, r)
+        return c
+
+    def exp_ltor(self, a, e):
+        c = 1
+        for i in range(self.k - 1, -1, -1):
+            c = self.mult(c, c)
+            if e & 1 << i:
+                c = self.mult(c, a)
+        return c
+
+    def inv(self, a):
+        _, u, _ = self.__blankinship(a, self.irp)
+        return u
+
+    def mon_redc(self, a):
+        _, irp_tick, r_inv = self.__blankinship(self.irp, self.r)
+        m = (self.mult((a & (self.r - 1)), irp_tick) & (self.r - 1))
+        t = self.mult((a ^ self.mult(m, self.irp)), r_inv)
+        if t > self.irp:
+            return t ^ self.irp
+        else:
+            return t
+
+    def dumb_mon_mult(self, a, b):
+        t = self.mult(a, b)
+        return self.mon_redc(t)
+
+    def mon_mult(self, a, b):
+        c = 0
+        for i in range(self.k):
+            if (1 << i) & a:
+                c = c ^ b
+            if 1 & c:
+                c = c ^ self.irp
+            c >>= 1
+        return c
+
+    def montify(self, a):
+        return self.mon_mult(a, self.r_sq)
+
+    def mon_square(self, a):
+        c = 0
+        for i in range(self.k):
+            if a & (1 << i): c ^= 1 << 2 * i
+        for i in range(self.k):
+            if c & 1:
+                c ^= self.irp
+            c >>= 1
+        return c
+
+    def mon_exp(self, a, e):
+        c = self.montify(1)
+        m = self.montify(a)
+        for i in range(self.k):
+            if e & (1 << i):
+                c = self.mon_mult(c, m)
+            m = self.mon_mult(m, m)
+        return self.mon_mult(c, 1)
+
+    def mon_mult_and_square(self, m, c):
+        t = m
+        mul = 0
+        sqr = 0
+        for i in range(self.k - 1, -1, -1):
+            if t & 1:
+                t = t ^ self.irp
+            t >>= 1
+            if c & (1 << i):
+                mul ^= t
+            if m & (1 << i):
+                sqr ^= t
+        return sqr, mul
+
+    def mon_exp_kor(self, a, e):
+        c = self.montify(1)
+        m = self.montify(a)
+        for i in range(self.k):
+            if e & (1 << i):
+                m, c = self.mon_mult_and_square(m, c)
+            else:
+                m = self.mon_mult(m, m)
+        return self.mon_mult(c, 1)
+
+\end{lstlisting}
 
 \end{document}
