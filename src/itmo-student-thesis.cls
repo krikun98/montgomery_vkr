@@ -178,7 +178,7 @@
 \renewcommand*{\labelenumi}{\asbukx{enumi})}%
 \renewcommand*{\theenumi}{\asbukx{enumi}}%
 \renewcommand*{\@tablecontinuation}[1]{Продолжение таблицы~#1}%
-\renewcommand*{\@chaptername}{ГЛАВА}%
+\renewcommand*{\@chaptername}{}%
 \renewcommand*{\@introductionname}{ВВЕДЕНИЕ}%
 \renewcommand*{\@conclusionname}{ЗАКЛЮЧЕНИЕ}%
 \renewcommand*{\@appendixname}{ПРИЛОЖЕНИЕ}%
@@ -590,19 +590,19 @@
 \titlecontents{chapter}
     [\chapterPrefix]
     {}
-    {\contentslabel[\thecontentslabel.]{\chapterW}}
+    {\contentslabel[\thecontentslabel]{\chapterW}}
     {\hspace*{-\chapterW}}
     {\titlerule*[0.5pc]{.}\contentspage}
 \titlecontents{section}
     [\sectionPrefix]
     {}
-    {\contentslabel[\thecontentslabel.]{\sectionW}}
+    {\contentslabel[\thecontentslabel]{\sectionW}}
     {\hspace*{-\sectionW}}
     {\titlerule*[0.5pc]{.}\contentspage}
 \titlecontents{subsection}
     [\subsectionPrefix]
     {}
-    {\contentslabel[\thecontentslabel.]{\subsectionW}~}
+    {\contentslabel[\thecontentslabel]{\subsectionW}~}
     {\hspace*{-\subsectionW}}
     {\titlerule*[0.5pc]{.}\contentspage}
 
@@ -643,7 +643,7 @@
 
 \newcommand{\theuniversity@ru}{{\small\bfseries Министерство науки и высшего образования Российской Федерации\par
 \MakeUppercase{\scriptsize федеральное государственное автономное образовательное учреждение высшего образования}\par
-\begin{singlespace}\MakeUppercase{<<Санкт-Петербургский национальный исследовательский университет информационных технологий,}\par\MakeUppercase{механики и оптики>>}\end{singlespace}}}
+\begin{singlespace}\MakeUppercase{``Национальный исследовательский университет ИТМО''}\end{singlespace}}}
 
 \newcommand{\theuniversity@en}{{\small\bfseries Ministry of Science and Higher Education\par
 \MakeUppercase{\scriptsize federal state autonomous educational institution of higher education}\par
@@ -1056,10 +1056,7 @@
        \begin{minipage}[t]{0.4\textwidth}\begin{flushleft}\thespecialty\end{flushleft}\end{minipage} \\
     & \@strings@DegreeLevel: \@strings@DegreeName \\
     & \@strings@ThesisSupervisor: \thesupervisorshort, \thesupervisordegree~ \hfilll \signatureplace \\
-    & \textbf{\@strings@ApprovedForDefense} \\
-    & \@strings@HeadOfProgram\ \theprogramhead, \theprogramheaddegree~ \hfilll \signatureplace \\
     \end{tabularx}\par}
-    \begin{flushright}\unknowndate\end{flushright}
     \vspace{0cm plus 1fill minus 0cm}
     \begin{center}\thecity, \theyear\@strings@yearend\end{center}
 \end{titlepage}\begin{titlepage}
