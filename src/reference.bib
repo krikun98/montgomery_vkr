@@ -135,6 +135,14 @@
     doi = {10.1016/j.amc.2006.08.018}
 }
 
+@article{kri20,
+  author  = {Krikun, Alexander and Levina, Alla},
+  title   = {Accelerated Diffie–Hellman in GF($2^k$) using parallelized Montgomery exponentiation},
+  year    = {Submitted for publication},
+  journal = {IEEE Micro},
+  langid={english}
+}
+
 @book{knu97,
     author = {Knuth, Donald E.},
     title = {The Art of Computer Programming, Volume 1 (3rd Ed.): Fundamental Algorithms},
@@ -188,7 +196,18 @@
     langid = {english},
 }
 
-@online{rfc2412,
+@book{lev01,
+  title={Crypto: How the Code Rebels Beat the Government--Saving Privacy in the Digital Age},
+  author={Levy, S.},
+  isbn={9781101199466},
+  series={Penguin Press Science Series},
+  url={https://books.google.ru/books?id=VOxpXwHmQMgC},
+  year={2001},
+  publisher={Penguin Publishing Group},
+  langid={english}
+}
+
+@misc{rfc2412,
 	series =	{Request for Comments},
 	number =	2412,
 	howpublished =	{RFC 2412},
@@ -203,22 +222,7 @@
     langid      = {english},
 }
 
-@online{rfc7296,
-	series =	{Request for Comments},
-	number =	7296,
-	howpublished =	{RFC 7296},
-	publisher =	{RFC Editor},
-	doi =		{10.17487/RFC7296},
-	url =		{https://rfc-editor.org/rfc/rfc7296.txt},
-    author =	{Charlie Kaufman and Paul E. Hoffman and Yoav Nir and Pasi Eronen and Tero Kivinen},
-	title =		{{Internet Key Exchange Protocol Version 2 (IKEv2)}},
-	pagetotal =	142,
-	year =		2014,
-	month =		oct,
-    langid      = {english},
-}
-
-@online{rfc3526,
+@misc{rfc3526,
 	series =	{Request for Comments},
 	number =	3526,
 	howpublished =	{RFC 3526},
@@ -233,6 +237,101 @@
     langid      = {english},
 }
 
+@misc{rfc3766,
+	series =	{Request for Comments},
+	number =	3766,
+	howpublished =	{RFC 3766},
+	publisher =	{RFC Editor},
+	doi =		{10.17487/RFC3766},
+	url =		{https://rfc-editor.org/rfc/rfc3766.txt},
+        author =	{Paul E. Hoffman and Hilarie Orman},
+	title =		{{Determining Strengths For Public Keys Used For Exchanging Symmetric Keys}},
+	pagetotal =	23,
+	year =		2004,
+	month =		apr,
+    langid={english},
+	abstract =	{Implementors of systems that use public key cryptography to exchange symmetric keys need to make the public keys resistant to some predetermined level of attack. That level of attack resistance is the strength of the system, and the symmetric keys that are exchanged must be at least as strong as the system strength requirements. The three quantities, system strength, symmetric key strength, and public key strength, must be consistently matched for any network protocol usage. While it is fairly easy to express the system strength requirements in terms of a symmetric key length and to choose a cipher that has a key length equal to or exceeding that requirement, it is harder to choose a public key that has a cryptographic strength meeting a symmetric key strength requirement. This document explains how to determine the length of an asymmetric key as a function of a symmetric key strength requirement. Some rules of thumb for estimating equivalent resistance to large-scale attacks on various algorithms are given. The document also addresses how changing the sizes of the underlying large integers (moduli, group sizes, exponents, and so on) changes the time to use the algorithms for key exchange. This document specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.},
+}
+
+@misc{rfc4307,
+	series =	{Request for Comments},
+	number =	4307,
+	howpublished =	{RFC 4307},
+	publisher =	{RFC Editor},
+	doi =		{10.17487/RFC4307},
+	url =		{https://rfc-editor.org/rfc/rfc4307.txt},
+        author =	{Jeffrey I. Schiller},
+	title =		{{Cryptographic Algorithms for Use in the Internet Key Exchange Version 2 (IKEv2)}},
+	pagetotal =	6,
+	year =		2005,
+	month =		dec,
+    langid={english},
+	abstract =	{The IPsec series of protocols makes use of various cryptographic algorithms in order to provide security services. The Internet Key Exchange (IKE (RFC 2409) and IKEv2) provide a mechanism to negotiate which algorithms should be used in any given association. However, to ensure interoperability between disparate implementations, it is necessary to specify a set of mandatory-to-implement algorithms to ensure that there is at least one algorithm that all implementations will have available. This document defines the current set of algorithms that are mandatory to implement as part of IKEv2, as well as algorithms that should be implemented because they may be promoted to mandatory at some future time. {[}STANDARDS-TRACK{]}},
+}
+
+@misc{rfc5246,
+	series =	{Request for Comments},
+	number =	5246,
+	howpublished =	{RFC 5246},
+	publisher =	{RFC Editor},
+	doi =		{10.17487/RFC5246},
+	url =		{https://rfc-editor.org/rfc/rfc5246.txt},
+        author =	{Eric Rescorla and Tim Dierks},
+	title =		{{The Transport Layer Security (TLS) Protocol Version 1.2}},
+	pagetotal =	104,
+	year =		2008,
+	month =		aug,
+    langid={english},
+	abstract =	{This document specifies Version 1.2 of the Transport Layer Security (TLS) protocol. The TLS protocol provides communications security over the Internet. The protocol allows client/server applications to communicate in a way that is designed to prevent eavesdropping, tampering, or message forgery. {[}STANDARDS-TRACK{]}},
+}
+
+@misc{rfc7296,
+	series =	{Request for Comments},
+	number =	7296,
+	howpublished =	{RFC 7296},
+	publisher =	{RFC Editor},
+	doi =		{10.17487/RFC7296},
+	url =		{https://rfc-editor.org/rfc/rfc7296.txt},
+    author =	{Charlie Kaufman and Paul E. Hoffman and Yoav Nir and Pasi Eronen and Tero Kivinen},
+	title =		{{Internet Key Exchange Protocol Version 2 (IKEv2)}},
+	pagetotal =	142,
+	year =		2014,
+	month =		oct,
+    langid      = {english},
+}
+
+@misc{rfc8247,
+	series =	{Request for Comments},
+	number =	8247,
+	howpublished =	{RFC 8247},
+	publisher =	{RFC Editor},
+	doi =		{10.17487/RFC8247},
+	url =		{https://rfc-editor.org/rfc/rfc8247.txt},
+        author =	{Yoav Nir and Tero Kivinen and Paul Wouters and Daniel Migault},
+	title =		{{Algorithm Implementation Requirements and Usage Guidance for the Internet Key Exchange Protocol Version 2 (IKEv2)}},
+	pagetotal =	19,
+	year =		2017,
+	month =		sep,
+    langid={english},
+	abstract =	{The IPsec series of protocols makes use of various cryptographic algorithms in order to provide security services. The Internet Key Exchange (IKE) protocol is used to negotiate the IPsec Security Association (IPsec SA) parameters, such as which algorithms should be used. To ensure interoperability between different implementations, it is necessary to specify a set of algorithm implementation requirements and usage guidance to ensure that there is at least one algorithm that all implementations support. This document updates RFC 7296 and obsoletes RFC 4307 in defining the current algorithm implementation requirements and usage guidance for IKEv2, and does minor cleaning up of the IKEv2 IANA registry. This document does not update the algorithms used for packet encryption using IPsec Encapsulating Security Payload (ESP).},
+}
+
+@misc{rfc8446,
+	series =	{Request for Comments},
+	number =	8446,
+	howpublished =	{RFC 8446},
+	publisher =	{RFC Editor},
+	doi =		{10.17487/RFC8446},
+	url =		{https://rfc-editor.org/rfc/rfc8446.txt},
+        author =	{Eric Rescorla},
+	title =		{{The Transport Layer Security (TLS) Protocol Version 1.3}},
+	pagetotal =	160,
+	year =		2018,
+	month =		aug,
+    langid={english},
+	abstract =	{This document specifies version 1.3 of the Transport Layer Security (TLS) protocol. TLS allows client/server applications to communicate over the Internet in a way that is designed to prevent eavesdropping, tampering, and message forgery. This document updates RFCs 5705 and 6066, and obsoletes RFCs 5077, 5246, and 6961. This document also specifies new requirements for TLS 1.2 implementations.},
+}
+
 @online{par17,
     author = {Arash Partow},
     editor = {Partow.net},
@@ -241,6 +340,23 @@
     lastchecked = {01.03.2020},
     originalyear = {28.05.2017},
     langid = {english}
+}
+
+@techreport{mor20,
+	number =	{draft-ietf-tls-oldversions-deprecate-06},
+	type =		{Internet-Draft},
+	institution =	{Internet Engineering Task Force},
+	publisher =	{Internet Engineering Task Force},
+	note =		{Work in Progress},
+	url =		{https://datatracker.ietf.org/doc/html/draft-ietf-tls-oldversions-deprecate-06},
+        author =	{Kathleen Moriarty and Stephen Farrell},
+	title =		{{Deprecating TLSv1.0 and TLSv1.1}},
+	pagetotal =	22,
+	year =		2020,
+	month =		jan,
+	day =		6,
+    langid={english},
+	abstract =	{This document, if approved, formally deprecates Transport Layer Security (TLS) versions 1.0 (RFC 2246) and 1.1 (RFC 4346) and moves these documents to the historic state. These versions lack support for current and recommended cipher suites, and various government and industry profiles of applications using TLS now mandate avoiding these old TLS versions. TLSv1.2 has been the recommended version for IETF protocols since 2008, providing sufficient time to transition away from older versions. Products having to support older versions increase the attack surface unnecessarily and increase opportunities for misconfigurations. Supporting these older versions also requires additional effort for library and product maintenance. This document also deprecates Datagram TLS (DTLS) version 1.0 (RFC6347), but not DTLS version 1.2, and there is no DTLS version 1.1. This document updates many RFCs that normatively refer to TLSv1.0 or TLSv1.1 as described herein. This document also updates RFC 7525 and hence is part of BCP195.},
 }
 
 @unpublished{openssl,
@@ -252,5 +368,6 @@
   note = {\url{www.openssl.org}},
   timestamp = {2020-03-30},
   title = {{OpenSSL}: The Open Source toolkit for {SSL/TLS}},
-  year = 2003
+  year = 2003,
+    langid={english},
 }

@@ -144,6 +144,14 @@
     doi = {10.1016/j.amc.2006.08.018}
 }
 
+@article{kri20,
+  author  = {Krikun, Alexander and Levina, Alla},
+  title   = {Accelerated Diffie–Hellman in GF($2^k$) using parallelized Montgomery exponentiation},
+  year    = {Submitted for publication},
+  journal = {IEEE Micro},
+  langid={english}
+}
+
 @book{knu97,
     author = {Knuth, Donald E.},
     title = {The Art of Computer Programming, Volume 1 (3rd Ed.): Fundamental Algorithms},
@@ -197,7 +205,18 @@
     langid = {english},
 }
 
-@online{rfc2412,
+@book{lev01,
+  title={Crypto: How the Code Rebels Beat the Government--Saving Privacy in the Digital Age},
+  author={Levy, S.},
+  isbn={9781101199466},
+  series={Penguin Press Science Series},
+  url={https://books.google.ru/books?id=VOxpXwHmQMgC},
+  year={2001},
+  publisher={Penguin Publishing Group},
+  langid={english}
+}
+
+@misc{rfc2412,
 	series =	{Request for Comments},
 	number =	2412,
 	howpublished =	{RFC 2412},
@@ -212,22 +231,7 @@
     langid      = {english},
 }
 
-@online{rfc7296,
-	series =	{Request for Comments},
-	number =	7296,
-	howpublished =	{RFC 7296},
-	publisher =	{RFC Editor},
-	doi =		{10.17487/RFC7296},
-	url =		{https://rfc-editor.org/rfc/rfc7296.txt},
-    author =	{Charlie Kaufman and Paul E. Hoffman and Yoav Nir and Pasi Eronen and Tero Kivinen},
-	title =		{{Internet Key Exchange Protocol Version 2 (IKEv2)}},
-	pagetotal =	142,
-	year =		2014,
-	month =		oct,
-    langid      = {english},
-}
-
-@online{rfc3526,
+@misc{rfc3526,
 	series =	{Request for Comments},
 	number =	3526,
 	howpublished =	{RFC 3526},
@@ -242,6 +246,101 @@
     langid      = {english},
 }
 
+@misc{rfc3766,
+	series =	{Request for Comments},
+	number =	3766,
+	howpublished =	{RFC 3766},
+	publisher =	{RFC Editor},
+	doi =		{10.17487/RFC3766},
+	url =		{https://rfc-editor.org/rfc/rfc3766.txt},
+        author =	{Paul E. Hoffman and Hilarie Orman},
+	title =		{{Determining Strengths For Public Keys Used For Exchanging Symmetric Keys}},
+	pagetotal =	23,
+	year =		2004,
+	month =		apr,
+    langid={english},
+	abstract =	{Implementors of systems that use public key cryptography to exchange symmetric keys need to make the public keys resistant to some predetermined level of attack. That level of attack resistance is the strength of the system, and the symmetric keys that are exchanged must be at least as strong as the system strength requirements. The three quantities, system strength, symmetric key strength, and public key strength, must be consistently matched for any network protocol usage. While it is fairly easy to express the system strength requirements in terms of a symmetric key length and to choose a cipher that has a key length equal to or exceeding that requirement, it is harder to choose a public key that has a cryptographic strength meeting a symmetric key strength requirement. This document explains how to determine the length of an asymmetric key as a function of a symmetric key strength requirement. Some rules of thumb for estimating equivalent resistance to large-scale attacks on various algorithms are given. The document also addresses how changing the sizes of the underlying large integers (moduli, group sizes, exponents, and so on) changes the time to use the algorithms for key exchange. This document specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.},
+}
+
+@misc{rfc4307,
+	series =	{Request for Comments},
+	number =	4307,
+	howpublished =	{RFC 4307},
+	publisher =	{RFC Editor},
+	doi =		{10.17487/RFC4307},
+	url =		{https://rfc-editor.org/rfc/rfc4307.txt},
+        author =	{Jeffrey I. Schiller},
+	title =		{{Cryptographic Algorithms for Use in the Internet Key Exchange Version 2 (IKEv2)}},
+	pagetotal =	6,
+	year =		2005,
+	month =		dec,
+    langid={english},
+	abstract =	{The IPsec series of protocols makes use of various cryptographic algorithms in order to provide security services. The Internet Key Exchange (IKE (RFC 2409) and IKEv2) provide a mechanism to negotiate which algorithms should be used in any given association. However, to ensure interoperability between disparate implementations, it is necessary to specify a set of mandatory-to-implement algorithms to ensure that there is at least one algorithm that all implementations will have available. This document defines the current set of algorithms that are mandatory to implement as part of IKEv2, as well as algorithms that should be implemented because they may be promoted to mandatory at some future time. {[}STANDARDS-TRACK{]}},
+}
+
+@misc{rfc5246,
+	series =	{Request for Comments},
+	number =	5246,
+	howpublished =	{RFC 5246},
+	publisher =	{RFC Editor},
+	doi =		{10.17487/RFC5246},
+	url =		{https://rfc-editor.org/rfc/rfc5246.txt},
+        author =	{Eric Rescorla and Tim Dierks},
+	title =		{{The Transport Layer Security (TLS) Protocol Version 1.2}},
+	pagetotal =	104,
+	year =		2008,
+	month =		aug,
+    langid={english},
+	abstract =	{This document specifies Version 1.2 of the Transport Layer Security (TLS) protocol. The TLS protocol provides communications security over the Internet. The protocol allows client/server applications to communicate in a way that is designed to prevent eavesdropping, tampering, or message forgery. {[}STANDARDS-TRACK{]}},
+}
+
+@misc{rfc7296,
+	series =	{Request for Comments},
+	number =	7296,
+	howpublished =	{RFC 7296},
+	publisher =	{RFC Editor},
+	doi =		{10.17487/RFC7296},
+	url =		{https://rfc-editor.org/rfc/rfc7296.txt},
+    author =	{Charlie Kaufman and Paul E. Hoffman and Yoav Nir and Pasi Eronen and Tero Kivinen},
+	title =		{{Internet Key Exchange Protocol Version 2 (IKEv2)}},
+	pagetotal =	142,
+	year =		2014,
+	month =		oct,
+    langid      = {english},
+}
+
+@misc{rfc8247,
+	series =	{Request for Comments},
+	number =	8247,
+	howpublished =	{RFC 8247},
+	publisher =	{RFC Editor},
+	doi =		{10.17487/RFC8247},
+	url =		{https://rfc-editor.org/rfc/rfc8247.txt},
+        author =	{Yoav Nir and Tero Kivinen and Paul Wouters and Daniel Migault},
+	title =		{{Algorithm Implementation Requirements and Usage Guidance for the Internet Key Exchange Protocol Version 2 (IKEv2)}},
+	pagetotal =	19,
+	year =		2017,
+	month =		sep,
+    langid={english},
+	abstract =	{The IPsec series of protocols makes use of various cryptographic algorithms in order to provide security services. The Internet Key Exchange (IKE) protocol is used to negotiate the IPsec Security Association (IPsec SA) parameters, such as which algorithms should be used. To ensure interoperability between different implementations, it is necessary to specify a set of algorithm implementation requirements and usage guidance to ensure that there is at least one algorithm that all implementations support. This document updates RFC 7296 and obsoletes RFC 4307 in defining the current algorithm implementation requirements and usage guidance for IKEv2, and does minor cleaning up of the IKEv2 IANA registry. This document does not update the algorithms used for packet encryption using IPsec Encapsulating Security Payload (ESP).},
+}
+
+@misc{rfc8446,
+	series =	{Request for Comments},
+	number =	8446,
+	howpublished =	{RFC 8446},
+	publisher =	{RFC Editor},
+	doi =		{10.17487/RFC8446},
+	url =		{https://rfc-editor.org/rfc/rfc8446.txt},
+        author =	{Eric Rescorla},
+	title =		{{The Transport Layer Security (TLS) Protocol Version 1.3}},
+	pagetotal =	160,
+	year =		2018,
+	month =		aug,
+    langid={english},
+	abstract =	{This document specifies version 1.3 of the Transport Layer Security (TLS) protocol. TLS allows client/server applications to communicate over the Internet in a way that is designed to prevent eavesdropping, tampering, and message forgery. This document updates RFCs 5705 and 6066, and obsoletes RFCs 5077, 5246, and 6961. This document also specifies new requirements for TLS 1.2 implementations.},
+}
+
 @online{par17,
     author = {Arash Partow},
     editor = {Partow.net},
@@ -250,6 +349,23 @@
     lastchecked = {01.03.2020},
     originalyear = {28.05.2017},
     langid = {english}
+}
+
+@techreport{mor20,
+	number =	{draft-ietf-tls-oldversions-deprecate-06},
+	type =		{Internet-Draft},
+	institution =	{Internet Engineering Task Force},
+	publisher =	{Internet Engineering Task Force},
+	note =		{Work in Progress},
+	url =		{https://datatracker.ietf.org/doc/html/draft-ietf-tls-oldversions-deprecate-06},
+        author =	{Kathleen Moriarty and Stephen Farrell},
+	title =		{{Deprecating TLSv1.0 and TLSv1.1}},
+	pagetotal =	22,
+	year =		2020,
+	month =		jan,
+	day =		6,
+    langid={english},
+	abstract =	{This document, if approved, formally deprecates Transport Layer Security (TLS) versions 1.0 (RFC 2246) and 1.1 (RFC 4346) and moves these documents to the historic state. These versions lack support for current and recommended cipher suites, and various government and industry profiles of applications using TLS now mandate avoiding these old TLS versions. TLSv1.2 has been the recommended version for IETF protocols since 2008, providing sufficient time to transition away from older versions. Products having to support older versions increase the attack surface unnecessarily and increase opportunities for misconfigurations. Supporting these older versions also requires additional effort for library and product maintenance. This document also deprecates Datagram TLS (DTLS) version 1.0 (RFC6347), but not DTLS version 1.2, and there is no DTLS version 1.1. This document updates many RFCs that normatively refer to TLSv1.0 or TLSv1.1 as described herein. This document also updates RFC 7525 and hence is part of BCP195.},
 }
 
 @unpublished{openssl,
@@ -261,7 +377,8 @@
   note = {\url{www.openssl.org}},
   timestamp = {2020-03-30},
   title = {{OpenSSL}: The Open Source toolkit for {SSL/TLS}},
-  year = 2003
+  year = 2003,
+    langid={english},
 }
 
 \end{filecontents}
@@ -365,9 +482,8 @@
 %%% Наличие публикаций и выступлений на конференциях по теме выпускной работы
 \researchpublications{
 \begin{refsection}
-Здесь будет ссылка на статью, отправленную в IEEE Micro
-%\nocite{orman98, knuth81}
-%\printannobibliography
+\nocite{kri20}
+\printannobibliography
 \end{refsection}
 }
 
@@ -442,7 +558,7 @@ IETF (инженерного совета Интернета)~\cite{rfc7296}, в
 \chapter{Теоретические понятия и концепции}
 
 \startrelatedwork
-Для подробного объяснения предложенного в работе, метода оптимизации необходимо ввести некоторые теоретические понятия.
+Для подробного объяснения предложенного в работе метода оптимизации необходимо ввести некоторые теоретические понятия.
 
 В данной главе рассмотрены концепции временной сложности алгоритмов, односторонних функций, конечных полей и клеточных автоматов,
 также представлены алгоритм Диффи-Хеллмана и алгоритм Монтгомери.
@@ -505,7 +621,6 @@ IETF (инженерного совета Интернета)~\cite{rfc7296}, в
 Примеры <<медленных>> алгоритмов - разложение числа на простые сомножители, алгоритм решения задачи
 дискретного логарифмирования.
 
-
 \section{Односторонние функции}\label{sec:func}
 
 Криптография с открытым ключом (асимметричное шифрование) основана на математических преобразованиях, которые сложно обратить.
@@ -565,7 +680,6 @@ IETF (инженерного совета Интернета)~\cite{rfc7296}, в
 За счёт этого в криптографии на эллиптических кривых используются ключи гораздо меньшего размера для достижения той же вычислительной сложности.\par
 Несмотря на это, из-за сложностей реализации криптографии на эллиптических кривых чаще используется криптография в конечных полях.
 Поэтому в данной работе рассматривается оптимизация алгоритма Диффи-Хэлмана именно для конечных полей $GF(2^k)$, которые подробно рассмотрены в главе~\ref{sec:fields}.
-
 
 \section{Алгоритм Диффи-Хеллмана}\label{sec:dhke}
 
@@ -805,7 +919,7 @@ $g$ и $n$ -- переопределяются соответственно ка
 После умножения на 2 для взятия модуля может быть вычтен неприводимый многочлен.
 
 В реализации для данной работы для умножения использовался модифицированный для конечных полей GF$(2^k)$метод
-"древнеегипетского" или "крестьянского" умножения.
+<<древнеегипетского>> или <<крестьянского>> умножения.
 Для данных $a(x)$ и $b(x)$ алгоритм получает $c(x) = a(x) \cdot b(x) \pmod{n(x)}$:
 \begin{lstlisting}[mathescape=true]
     $\textit{Вход}: ~a(x), ~b(x), ~n(x)$
@@ -862,7 +976,7 @@ b(x) & 0 & 1\\
     3:      $c(x) = c(x) \cdot c(x)$
     4:      if $e_i$ == 1: $c(x) = m(x) \cdot c(x)$
 \end{lstlisting}
-Умножения в алгоритме выполняются по вышеуказанному модифицированному крестьянскому алгоритму и учитывают остатки от деления.
+Умножения в алгоритме выполняются по вышеуказанному модифицированному <<крестьянскому>> алгоритму и учитывают остатки от деления.
 
 Имплементация данных операций позволила получить эффективную реализацию алгебры в конечных полях $GF(2^k)$.
 Такая реализация считается базовой и описывается во многих учебниках по криптографии и программированию~\cite{men01,sma15,knu97_2}.
@@ -917,7 +1031,7 @@ $r = 2^k, \text{НОД}(n,r) = 1$ и $0 \leq a < nR$~\cite{koc98}.
 \end{lstlisting}
 
 Алгоритм возведения в степень Монтгомери даёт значительный выигрыш в скорости по сравнению со стандартным алгоритмом
-"слева-направо", описанным в главе~\ref{sec:oper}.
+<<слева направо>>, описанным в главе~\ref{sec:oper}.
 Он также использовался при тестировании производительности, проведённом для работы.
 Похожий алгоритм используется в OpenSSL~\cite{openssl}, самой популярной библиотеке для криптографии.
 
@@ -936,14 +1050,21 @@ $r = 2^k, \text{НОД}(n,r) = 1$ и $0 \leq a < nR$~\cite{koc98}.
 Смена значений происходит одновременно и независимо во всех ячейках со сменой такта в соответствие с правилом перехода:
 новое значение каждой ячейки вычисляется как функция от значений соседних ячеек.
 Также имеет значение радиус окрестности - количество соседних клеток, определяющих правило перехода.
-Вот пример правила перехода для одномерного клеточного автомата:
+Вот пример правила перехода для одномерного клеточного автомата с радиусом 1:
 \begin{table}[h]
 \begin{tabular}{ l l l l l l l l l }
 Состояние ячейки и соседей: & 111 & 110 & 101 & 100 & 011 & 010 & 001 & 000 \\
 Следующее состояние: & ~0 & ~1 & ~0 & ~0 & ~1 & ~0 & ~0 & ~1 \\
 \end{tabular}
 \end{table}
-Имеет значение и
+
+Имеет значение и тип ограничений на крайних ячейках клеточного автомата.
+Существуют автоматы, в которых считается, что ячейки на границах всегда имеют значение 0.
+Такой подход плохо генерализуется на автоматы с большим радиусом.
+Более общий подход - считать нулевыми ячейки <<за границами>> конфигурации.
+Но наиболее популярный тип, используемый и в данной работе - это <<склейка>>, при котором крайние клетки считаются соседними.
+Таким образом, строка для одномерного автомата превращается в кольцо.
+
 Для одномерных клеточных автоматов с радиусом окрестности 1, как правило, применяется классификация Стивена Вольфрама.
 Так как для радиуса 1 существует 8 различных комбинаций состояний ячеек, всего существует $2^8=256$ правил перехода.
 Вольфрам предложил нумеровать их по двоичному числу, которое формируют состояния.
@@ -1016,39 +1137,163 @@ $m(x)$ и $c(x)$ есть общий шаг~\cite{ku04}:
 в квадрат и умножения не только даёт прирост в скорости по сравнению с другими алгоритмами
 возведения в степень по модулю, но и предоставляет возможности для физической реализации и важные с точки зрения безопасности свойства.
 
+\finishrelatedwork
 \chapterconclusion
 
 В рамках данной главы были рассмотрены теоретические основы и концепции, необходимые для понимания принципов работы алгоритма Диффи-Хеллмана.
 Также были представлены алгоритмы, которые используются для возведения в степень по модулю в существующих криптографических системах:
-классический алгоритм быстрого возведения в степень по модулю "слева направо" и алгоритм Монтгомери.
-Эти алгоритмы использовались в главе~\ref{sec:impl} для сравнительного тестирования производительности наряду с оптимизированной версией, предложенной в работе.
+классический алгоритм быстрого возведения в степень по модулю <<слева направо>> и алгоритм Монтгомери.
+Эти алгоритмы использовались далее в работе для сравнительного тестирования производительности наряду с оптимизированной версией, предложенной в работе.
 
 \chapter{Законодательство и стандарты}
 
-Информационные технологии и, в частности, криптография, были подвержены жёсткому регулированию с начала их развития.
+Информационные технологии и, в частности, криптография, были подвержены жёсткому регулированию с самого начала их развития.
+Сразу после конца Второй Мировой войны в США и многих других странах были разработаны правила контроля экспорта
+технологий, которые могут иметь <<двойное назначение>>, то есть могут применяться как в мирных, так и в военных целях.
+Криптография попала под эти ограничения как военная технология.
 
-\section{Атака Logjam}\label{sec:logjam}
+Развитие финансовой сферы и разработка стандарта Data Encryption Standard привело к серьёзным проблемам с контролем экспорта.
+С ростом популярности персональных компьютеров эти проблемы привлекли внимание широкой публики.
+Для защиты транзакций по кредитным картам в 1990-ые годы использовалась в основном технология Secure Socket Layer (SSL).
+SSL использовала шифр с длиной ключа 128 бит, но для экспорта были разрешены только ключи в 40 бит.
+Для выполнения этих требований в <<экспортном>> SSL в открытую передавались 88 бит ключа.
+Результирующие ключи в 40 бит могли быть взломаны за несколько дней даже на персональном компьютере тех времён~\cite{lev01}.
+Это делало транзакции с зарубежными партнёрами практически незащищёнными.
+Из-за сложности заполучить <<домашнюю>> версию SSL многие пользователи внутри США тоже использовали небезопасную
+<<экспортную>> версию, что лишало алгоритм смысла.
 
-Тут будет про экспортную криптографию и атаки, к которым привело её наследие.
+После долгих судебных процессов криптография была переведена из категории военных технологий в категорию коммерческих,
+ограничения сильно смягчились.
+Также в 2000 году было решено не применять регуляторные практики для технологий к программному обеспечению,
+что дало толчок к развитию и экспорту как проприетарного, так и открытого программного обеспечения для криптографии.
 
-\section{Стандарты IETF}\label{sec:IETF}
+\section{Уязвимости экспортной криптографии}\label{sec:logjam}
 
-Тут будет про необходимость адекватного регулирования с помощью более гибких структур и про увеличение длин ключей.
+Ограничение в 40 бит действовало для систем с симметричным ключом.
+Асимметричным системам наподобие алгоритма Диффи-Хеллмана необходима большая длина ключа для эквивалентного уровня криптографической стойкости.
+Симметричному ключу в 40 бит примерно эквивалентны асимметричные ключи в 512 бит.
+Такие ключи (и необходимые для них неприводимые многочлены) по незнанию или по неосторожности поддерживались во многих системах ещё
+долгое время после отмены регуляторных ограничений.
 
-\section{TLS}\label{sec:TLS}
+На 2015 год около 10 процентов самых популярных сайтов поддерживали шифрование соединения по устаревшему <<экспортному>> стандарту.
+Так как подбор неприводимых многочленов для алгоритма Диффи-Хеллмана требует обширных математических изысканий,
+в основном используется общеизвестный и довольно узкий набор неприводимых многочленов, предоставляемый
+регуляторными органами или крупными провайдерами наподобие Apache.
 
-Здесь будет краткая история развития требований к алгоритму Диффи-Хеллмана с SSL до TLS 1.3.
+Крупный резонанс в 2015 году вызвала атака Logjam.
+Главный компонент этой атаки - алгоритм на основе предварительных вычислений с помощью метода решета числового поля,
+которые для 512-битных групп занимали около недели, позволяющий вычислять дискретные логарифмы за 70 секунд~\cite{adr15}.
+Перед обменом ключами происходит согласование группы, которая будет использоваться.
+Второй компонент этой атаки - это принуждение сервера использовать именно ту группу, для которой проведены предварительные вычисления.
+Если сервер использует один и тот же секретный ключ для всех клиентов, это позволяет скомпроментировать все его соединения, использующие ту же группу.
+Даже если сервер не поддерживает конкретную группу, всего их в широком использовании, как уже упоминалось, немного.
+Например, 92\% сайтов, поддерживавших <<экспортные>> группы в 2015, поддерживали всего две группы.
+
+После публикации статьи, описывающей данную атаку, поддержку <<экспортной>> криптографии начали активно прекращать.
+Тем не менее, атака Logjam позволяет компроментировать не только группы в 512 бит.
+Сложность необходимых предварительных вычислений растёт сверхполиномиально с длиной группы, но ещё в 2015 исследователи считали,
+что даже группы в 1024 бита уже ненадёжны.
+Таким образом, инженерное сообщество столкнулось с необходимостью ужесточения стандартов и удлиннения ключей шифрования.
+
+\section{Стандарты для обмена ключами}\label{sec:IETF}
+
+Алгоритм Диффи-Хеллмана использовался как опция для защищённого обмена ключами в протоколе Secure Sockets Layer (SSL).
+В протоколе SSL и основанном на нём протоколе Transport Layer Security (TLS) широко используются центры сертификации
+(Certificate Authority, CA), которые подписывают открытые ключи серверов и сайтов.
+В классическом виде алгоритм Диффи-Хеллмана уязвим к атакам "человек посередине", поэтому в протоколе были
+обозначены три варианта алгоритма, два из которых используют такие подписи.
+
+Первый вариант - \textbf{анонимный}, или классический. Секретные ключи в таком варианте генерируются с помощью публичных
+ключей, которые не подписаны никаким центром сертификации.
+Такой вариант изначально предлагался в статье "New Directions in Cryptography" и не считается надёжным сам по себе,
+так как при перехвате всех коммуникаций атакующий может подставить свои ключи, скомпроментировав безопасность шифрования.
+
+Второй вариант - \textbf{фиксированный}. Для генерации секретного ключа сервером используется заранее известный публичный ключ
+сервера или сайта, копия которого хранится у центра сертификации.
+Такой метод позволяет генерировать публичные ключи заранее и хранить их для повторного использования со множеством клиентов или серверов.
+Главная проблема такого метода - компроментирование всего одного публичного ключа даст атакующему доступ
+ко всем коммуникациям, которые использовали или будут использовать этот ключ.
+Например, при компроментации публичного ключа сервера становится известен его закрытый ключ, и ключ
+симметричного шифрования можно получить, просто перехватив открытый ключ клиента.
+Такая проблема не имела бы значения, если компроментация публичного ключа была бы невозможна.
+Но некоторые ключи шифрования, которые на данный момент находятся в широком использовании, могут быть скомпроментированы
+за довольно короткое время при наличии достаточных ресурсов.
+
+Эта проблема привела к появлению третьего варианта - \textbf{эфемерного}.
+Он использует временные публичные ключи, которые генерируются для каждой сессии.
+Эти публичные ключи должны быть подписаны открытой подписью сервера, которую может подтвердить
+центр сертификации.
+Таким образом, при компроментации какого-либо ключа для определённой атакующий не может получить
+доступ к другим коммуникациям.
+Это свойство называется <<совершенная прямая секретность>>.
+
+На основе протокола SSL был создан протокол TLS.
+После прекращения поддержки версий 1.0 и 1.1~\cite{mor20} актуальными остаются версии 1.2~\cite{rfc5246} и 1.3~\cite{rfc8446}.
+В версии 1.2 разрешены только фиксированный и эфемерный вариант алгоритма Диффи-Хеллмана, в 1.3 - только эфемерный вариант.
+Также в TLS 1.3 разрешены только модификации алгоритма, основанные на конечных полях или эллиптических кривых.
+
+Протокол TLS описывается и поддерживается Инженерным советом Интернета (IETF).
+IETF выпускает стандарты, в которых содержатся рекомендации для реализаций протоколов,
+математически безопасные группы, которые рекомендуется использовать в реализациях.
+Рекомендации IETF имеют несколько уровней от MUST (обязательно рекомендуется) до MUST NOT (абсолютно нельзя).
+Обмен ключами регламентирован в протоколе <<Internet Key Exchange v2>>.
+На 2005 год (и в TLS 1.2) допустимыми считались группы в 768 бит~\cite{rfc4307}, но на 2017 год
+такие группы, цитата, <<могут быть взломаны за несколько часов с помощью широко доступного
+в продаже оборудования и не дают абсолютно никакой безопасности>>~\cite{rfc8247}.
+Даже группы в 1536 бит получили статус <<не рекомендуется>>.
+Минимальная длина группы, которую на данный момент рекомендуется использовать для
+алгоритма Диффи-Хеллмана на конечных полях - это 2048 бит.
+
+Устаревшие стандарты IETF во имя обратной совместимости довольно долго поддерживаются даже после выхода следующих версий.
+Оригинальный SSL 2.0 запретили только в 2011 году, несмотря на то, что стандарт TLS появился в 1999.
+Но для обеспечения безопасности всегда необходимо следовать последним рекомендациям.
+
+\chapterconclusion
+
+TLS 1.3 представил достаточно много новых требований, которые делают невозможным использование различных оптимизаций из
+предыдущих версий протокола: больше нельзя повторно использовать публичные ключи, допустимые группы, используемые
+в протоколе, стали длиннее и т.д.
+Соответственно, как никогда важно стало ускорение работы алгоритма Диффи-Хеллмана.
+Оптимизации наподобие рассматриваемых в данной работе позволят поддерживать допустимый уровень безопасности
+без ущерба для пользовательского опыта.
 
 \chapter{Имплементация и тестирование}
 
+В рамках данной главы была разработана библиотека для арифметики в конечных полях на языке Python.
+В библиотеке было реализовано несколько вариаций алгоритмов возведения в степень по модулю.
+С использованием этой библиотеки были реализованы различные модификации алгоритмов Диффи-Хеллмана и
+проведено сравнительное тестирование производительности модификаций алгоритма.
+
 \section{Выбор языка программирования}\label{sec:prog}
 
-В данной главе будет рассказано про особенности языка Python, за которые он был выбран для данного проекта.
-В частности, про то, что в Python переменные и числа не имеют ограничения по длинне, что делает
-возможным тестирование на очень длинных ключах.
-Также будут описаны альтернативы (performance-focused implementations из статьи) и их недостатки.
+Для реализации был выбран язык Python версии 3.7.
+Данный язык достаточно прост в освоении и использовании, и идеально подходит для работ в обучающих целях.
+В существующих криптографических библиотеках~\cite{openssl} используются более сложные представления чисел,
+операции умножения и возведения в степень в которых проводятся не побитово, а со "словами". то есть по несколько бит разом.
 
-\section{Описание имплементации}\label{sec:impl}
+Ключевая для данной задачи особенность языка Python - это естественная работа с большими числами.
+В языке C, например, число может занимать максимум 4 байта, а неприводимые многочлены, которые использовались
+в данной работе, занимают до 1 килобайта.
+
+Выбор реализации длинной арифметики - задача на отдельную научную работу.
+Существующие реализации  в основном оптимизированы для стандартной арифметики, и переопределение операций
+сложения и умножения на аналогичные для конечных полей требует обширных знаний и специфических навыков.
+
+Так как данная работа сфокусирована на сравнительном тестировании производительности, решено было с нуля
+реализовать все необходимые классы и функции.
+Таким образом разница в производительности между модификациями алгоритма Диффи-Хеллмана появляется исключительно
+из-за свойств выбранного алгоритма возведения в степень.
+
+Алгоритмы, реализованные в данной библиотеке за счёт вышеобозначенных свойств языка легко <<перевести>> и приспособить для
+использования в любой другой реализации.
+Также библиотека может использоваться в обучающих целях, например, для образца реализации стандарта TLS 1.3.
+
+\section{Описание реализации}\label{sec:impl}
+
+Для представления многочленов в конечном поле GF($2^k$) использовались стандартные числовые переменные языка Python.
+Массив бит такой переменной представляет массив $a_{k-1} \dots a_0$ для многочлена
+$a(x) = a_{k-1} x^{k-1} + a_{k-2} x^{k-2} \dots a_1 x + a_0$.
+
 
 Здесь в основном структура и ссылки на алгоритмы из первой главы.
 В приложении будет код - не весь, но некоторых функций.
