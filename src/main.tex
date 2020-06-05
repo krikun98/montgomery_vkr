@@ -10,6 +10,7 @@
 \usepackage{listings}
 \usepackage{wrapfig}
 \usepackage{biblatex}
+\usepackage{pgf}
 \usepackage{diagbox}
 \begin{filecontents}{reference.bib}
 @inproceedings{sta03,
@@ -1396,12 +1397,12 @@ $k, r, r^2 \pmod{n(x)}$ сохраняются между вычислениям
 
 Графики, таблицы и описание результатов тестирования представлены в следующей главе.
 
-\section{Результаты тестирования производительности}\label{sec:results}
-
-\begin{figure}[h]
+\begin{figure}[!b]
 \caption{Сравнение производительности для 10000 операций возведения в степень}\label{fig:res}
-\includegraphics[width=11cm]{graphics/results_ru.png}
+\input{graphics/results_ru.pgf}
 \end{figure}
+
+\section{Результаты тестирования производительности}\label{sec:results}
 
 На рисунке~\ref{fig:res} представлены результаты первого набора тестов - сравнение производительности различных
 модификаций алгоритма возведения в степень для 10000 операций на небольших многочленах.
@@ -1411,9 +1412,9 @@ $k, r, r^2 \pmod{n(x)}$ сохраняются между вычислениям
 оптимизированные версии имеют преимущество.
 Такой результат наглядно демонстрирует преимущество умножения и возведения в степень Монтгомери.
 
-\begin{figure}[h]
+\begin{figure}[!h]
 \caption{Сравнение производительности для операции возведения в степень}\label{fig:res_bignum}
-\includegraphics[width=11cm]{graphics/results_bignum_ru.png}
+\input{graphics/results_bignum_ru.pgf}
 \end{figure}
 
 На рисунке~\ref{fig:res_bignum} представлены результаты второго набора тестов - сравнение производительности различных
@@ -1428,7 +1429,7 @@ $k, r, r^2 \pmod{n(x)}$ сохраняются между вычислениям
 
 \begin{figure}[!h]
 \caption{Сравнение производительности для полного алгоритма Диффи-Хеллмана}\label{fig:res_dhke}
-\includegraphics[width=11cm]{graphics/results_dhke_ru.png}
+\input{graphics/results_dhke_ru.pgf}
 \end{figure}
 
 Результаты третьего набора тестов продемонстрированы на рисунках~\ref{fig:res_dhke} и~\ref{fig:res_dhke_per},
@@ -1445,7 +1446,7 @@ $k, r, r^2 \pmod{n(x)}$ сохраняются между вычислениям
 
 \begin{figure}[!h]
 \caption{Относительное сравнение производительности для полного алгоритма Диффи-Хеллмана}\label{fig:res_dhke_per}
-\includegraphics[width=11cm]{graphics/results_dhke_percent_ru.png}
+\input{graphics/results_dhke_percent_ru.pgf}
 \end{figure}
 
 На рисунке~\ref{fig:res_dhke_per} представлены относительные результаты производительности модификаций алгоритма Диффи-Хеллмана.
