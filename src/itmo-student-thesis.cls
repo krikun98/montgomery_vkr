@@ -66,7 +66,7 @@
 
 %% Расположение номеров страниц - как и в диссертации.
 
-\RequirePackage{fancyhdr}
+\RequirePackage{fancyhdr, lastpage}
 
 %% Делаем правильные подписи в правильных местах.
 
@@ -529,14 +529,14 @@
 \RequirePackage{titletoc}
 
 \setcounter{secnumdepth}{3}
-\titleformat{\chapter}[block]{\normalsize\bfseries\center}{\@chaptername~\thechapter.~}%
+\titleformat{\chapter}[block]{\normalsize\bfseries\center}{\@chaptername~\thechapter~}%
 {0pt}{\begin{MakeUppercase}}[\end{MakeUppercase}\thispagestyle{\TheOnlyTruePageStyle}]
 \titlespacing{\chapter}{0pt}{-30pt}{0pt}
-\titleformat{\section}[block]{\normalsize\bfseries\center}{\thesection.~}{0pt}{}
+\titleformat{\section}[block]{\normalsize\bfseries\center}{\thesection~}{0pt}{}
 \titlespacing{\section}{0pt}{0pt}{0pt}
-\titleformat{\subsection}[block]{\normalsize\bfseries\center}{\thesubsection.~}{0pt}{}
+\titleformat{\subsection}[block]{\normalsize\bfseries\center}{\thesubsection~}{0pt}{}
 \titlespacing{\subsection}{0pt}{0pt}{0pt}
-\titleformat{\subsubsection}[block]{\normalsize\bfseries\center}{\thesubsubsection.~}{0pt}{}
+\titleformat{\subsubsection}[block]{\normalsize\bfseries\center}{\thesubsubsection~}{0pt}{}
 \titlespacing{\subsubsection}{0pt}{0pt}{0pt}
 
 %% \appendix начинает приложения, которые должны правильно именоваться.
@@ -714,6 +714,8 @@
 \newcommand{\finishdate}[3]{\renewcommand{\thefinishdate}{\@localizeddate{#1}{#2}{#3}}}
 \newcommand{\thedefencedate}{\unknowndate}
 \newcommand{\defencedate}[3]{\renewcommand{\thedefencedate}{\@localizeddate{#1}{#2}{#3}}}
+\newcommand{\thepredefencedate}{\unknowndate}
+\newcommand{\predefencedate}[3]{\renewcommand{\thepredefencedate}{\@localizeddate{#1}{#2}{#3}}}
 
 %% Контентные команды без значений по умолчанию
 
@@ -1068,14 +1070,14 @@
     \noindent\@strings@ThesisReceived~\unknowndate\par\bigskip\par
     \noindent\@strings@OriginalityOfThesis~\uhspace{5ex}\%\par\bigskip\par
     \noindent\@strings@ThesisCompletedWithGrade~\infiniteuhspace\par\bigskip\par
-    \noindent\@strings@DateOfDefense~\unknowndate\par\bigskip\par
+    \noindent\@strings@DateOfDefense~\thedefencedate\par\bigskip\par
     \noindent\@strings@SecretaryOfCommission~\thesecretary\hfill\signatureplace\par\bigskip\par
-    \noindent\@strings@NumberOfPages~\infiniteuhspace\par\bigskip\par
+    \noindent\@strings@NumberOfPages~\pageref{LastPage}\par\bigskip\par
     \noindent\@strings@NumberOfSupplementary~\infiniteuhspace\par\bigskip\par
 \end{titlepage}}
 
 %%% Локализуемый шаблон задания
-\newcommand{\typeoutSpecification}{\begin{titlepage}
+\newcommand{\typeoutSpecification}{\begin{titepage}
 \begin{center}\theuniversity\end{center}
 \begin{small}
     \noindent\begin{tabularx}{\textwidth}{Xl}
@@ -1136,7 +1138,7 @@
     \noindent\begingroup\renewcommand{\arraystretch}{1.5}\begin{tabular}{lll}
         \@strings@Student & \theauthorshort & \signatureplace \\
         \@strings@ThesisSupervisor & \thesupervisorshort &  \signatureplace \\
-        \multicolumn{3}{l}{\unknowndate}
+        \multicolumn{3}{l}{\thepredefencedate}
     \end{tabular}\endgroup
     \end{small}
 \end{titlepage}}
